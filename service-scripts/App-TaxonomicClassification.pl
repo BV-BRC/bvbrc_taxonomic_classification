@@ -211,7 +211,7 @@ sub run_kraken_and_process_output
     my($app, $params, $cmd, $options, $output) = @_;
     
     warn "Run: @$cmd @$options\n";
-    my $ok = IPC::Run::run((@$cmd, @$options), ">", "$output/kraken2.stdout", "2>", "$output/kraken2.stderr");
+    my $ok = IPC::Run::run([@$cmd, @$options], ">", "$output/kraken2.stdout", "2>", "$output/kraken2.stderr");
 
     my $err = $?;
     warn "Kraken returns ok=$ok err=$err\n";
